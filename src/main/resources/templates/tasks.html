@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo Application</title>
+    <!-- ✅ Add Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+
+<div class="w-full max-w-lg bg-white shadow-lg rounded-lg p-6">
+    <h1 class="text-2xl font-bold text-center mb-4 text-blue-600">Todo Application</h1>
+
+    <!-- Task Form -->
+    <div class="mb-4">
+        <form action="/" method="post" class="flex gap-2">
+            <input type="text" name="title" required placeholder="Enter Task"
+                   class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <button type="submit"
+                    class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+                Add Task
+            </button>
+        </form>
+    </div>
+
+    <!-- Task List -->
+    <div class="space-y-2">
+        <th:block th:each="task: ${tasks}">
+            <div th:class="'p-3 flex justify-between items-center rounded-lg shadow ' + (${task.completed} ? 'bg-green-100' : 'bg-red-100')">
+                <span th:text="${task.title}" class="text-lg font-medium text-gray-700"></span>
+                <div class="space-x-2">
+                    <a th:href="@{/{id}/delete(id=${task.id})}"
+                       class="text-red-600 hover:text-red-800 font-semibold">
+                        Delete
+                    </a>
+                    <a th:href="@{/{id}/toggle(id=${task.id})}"
+                       class="text-blue-600 hover:text-blue-800 font-semibold">
+                        Toggle
+                    </a>
+                </div>
+            </div>
+        </th:block>
+    </div>
+</div>
+
+</body>
+</html>
