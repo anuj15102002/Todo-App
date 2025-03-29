@@ -1,4 +1,4 @@
-package com.app.TodoApp.Controllers.Services;
+package com.app.TodoApp.Services;
 
 import com.app.TodoApp.Models.Tasks;
 import com.app.TodoApp.Respository.TaskRepository;

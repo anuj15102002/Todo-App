@@ -1,9 +1,8 @@
 package com.app.TodoApp.Controllers;
 
 
-import com.app.TodoApp.Controllers.Services.TaskServices;
+import com.app.TodoApp.Services.TaskServices;
 import com.app.TodoApp.Models.Tasks;
-import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
